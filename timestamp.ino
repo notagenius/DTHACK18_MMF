@@ -9,8 +9,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char ssid[] = "*************";  //  your network SSID (name)
-const char pass[] = "********";       // your network password
+const char ssid[] = "TelekomOS1";  //  your network SSID (name)
+const char pass[] = "#dthack18";       // your network password
 
 // NTP Servers:
 static const char ntpServerName[] = "us.pool.ntp.org";
@@ -65,24 +65,21 @@ time_t prevDisplay = 0; // when the digital clock was displayed
 void loop()
 {
   if (timeStatus() != timeNotSet) {
-    if (now() != prevDisplay) { //update the display only if time has changed
+   
       prevDisplay = now();
       digitalClockDisplay();
-    }
+    
   }
 }
 
 void digitalClockDisplay()
 {
-  // digital clock display of the time
 
-    void digitalClockDisplay()
-    {
       int milliseconds = millis()%1000;
       Serial.println(hour() + (String)":" + minute() + (String)":" +  " " + second () + ":" +  " " +  milliseconds + " " +  day()  +" " +  month() + " " + year());
       Serial.println();
     
-    }
+    
 
 }
 
