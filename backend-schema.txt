@@ -9,3 +9,7 @@ rssi_min as SHORTINT, ex. 67 (1-255)
 rssi_max as SHORTINT, ex. 95 (1-255)
 * sensor_id as SHORTINT, ex. 123 (1-255)
 timestamp_received when data was received by server (created automatically on server)
+
+example request:
+POST to http://mmf.etadar.de:8000/mmf/new
+
