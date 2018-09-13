@@ -92,8 +92,6 @@ static void showMetadata(struct SnifferPacket *snifferPacket) {
   getMAC(addr, snifferPacket->data, 10);
   Serial.print(" Peer MAC: ");
   Serial.println(addr);
-  
-  
 }
 
 /**
@@ -107,7 +105,7 @@ static void ICACHE_FLASH_ATTR sniffer_callback(uint8_t *buffer, uint16_t length)
 }
 
 
-#define CHANNEL_HOP_INTERVAL_MS   2000
+#define CHANNEL_HOP_INTERVAL_MS   1000
 static os_timer_t channelHop_timer;
 
 /**
@@ -125,12 +123,30 @@ void channelHop()
 #define DISABLE 0
 #define ENABLE  1
 
+  char ssid[] = "TelekomOS1";  //  your network SSID (name)
+  char pass[] = "#dthack18";       // your network password
+
 void setup() {
-  // set the WiFi chip to "promiscuous" mode aka monitor mode
+
   Serial.begin(115200);
+//wifi_set_opmode(STATION_MODE);
   delay(10);
-  wifi_set_opmode(STATION_MODE);
-  wifi_set_channel(1);
+  WiFi.begin(ssid, pass);
+
+   while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+    Serial.println(WiFi.localIP());
+   }
+
+//  wifi_set_channel(1);
+
+ char ntpServerName[] = "de.pool.ntp.org";
+   time_t getNtpTime();
+// void digitalClockDisplay();
+// void printDigits(int digits);
+// void sendNTPpacket(IPAddress &address);
+ 
   wifi_promiscuous_enable(DISABLE);
   delay(10);
   wifi_set_promiscuous_rx_cb(sniffer_callback);
@@ -141,39 +157,28 @@ void setup() {
   os_timer_disarm(&channelHop_timer);
   os_timer_setfn(&channelHop_timer, (os_timer_func_t *)channelHop, NULL);
   os_timer_arm(&channelHop_timer, CHANNEL_HOP_INTERVAL_MS, 1);
-
-
-
-
- 
 }
 
 void loop() {
 
- 
  wifi_promiscuous_enable(DISABLE);
- Serial.print(" Change to internet mode !!!!!: ");
+ Serial.println("Changing to internet mode.");
 
- Serial.println();
- char ssid[] = "TelekomOS1";  //  your network SSID (name)
- char pass[] = "#dthack18";       // your network password
- char ntpServerName[] = "us.pool.ntp.org";
+// char ssid[] = "TelekomOS1";  //  your network SSID (name)
+// char pass[] = "#dthack18";       // your network password
+
 
  WiFiUDP Udp;
- unsigned int localPort = 8888;
+// unsigned int localPort = 8888;
 
-
- //wifi_set_opmode(SOFTAP_MODE);
  WiFi.begin(ssid, pass);
 
- while (WiFi.status() != WL_CONNECTED) {
+   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
     Serial.println(WiFi.localIP());
    }
 
- time_t getNtpTime();
- void digitalClockDisplay();
- void printDigits(int digits);
- void sendNTPpacket(IPAddress &address);
+  Serial.println("Connected to Internet.");
+
 }
