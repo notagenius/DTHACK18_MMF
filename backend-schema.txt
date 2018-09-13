@@ -1,0 +1,6 @@
+Database Format:
+id
+timestamp as DATETIME, example: '2018-09-13 20:00:39.246'
+mac as string, example: D8:2A:7E:10:1E:63
+rssi as positive short int, example: 69
+
