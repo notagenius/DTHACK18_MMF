@@ -1,6 +1,11 @@
-Database Format:
-id
-timestamp as DATETIME, example: '2018-09-13 20:00:39.246'
-mac as string, example: D8:2A:7E:10:1E:63
+API/Database Format (fields with * are required):
+id (created automatically)
+* timestamp as BIGINT in epoch format incl. milliseconds (=milliseconds since 1970), example: '1420998416685'
+* mac as string, example: D8:2A:7E:10:1E:63
 rssi as positive short int, example: 69
-
+bssid as string(18)
+ssid as string(32)
+rssi_min as SHORTINT, ex. 67 (1-255)
+rssi_max as SHORTINT, ex. 95 (1-255)
+* sensor_id as SHORTINT, ex. 123 (1-255)
+timestamp_received when data was received by server (created automatically on server)
