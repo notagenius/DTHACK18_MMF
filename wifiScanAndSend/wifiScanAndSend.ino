@@ -12,7 +12,8 @@ Challenge:
 
 #include <Arduino.h>
 #include <WiFiManager.h>
-
+#include <ArduinoJson.h>
+#include <Ethernet.h>
 
 #define DATA_LENGTH           112
 #define TYPE_MANAGEMENT       0x00
@@ -105,22 +106,106 @@ static void ICACHE_FLASH_ATTR sniffer_callback(uint8_t *buffer, uint16_t length)
 }
 
 
-#define CHANNEL_HOP_INTERVAL_MS   1000
+#define CHANNEL_HOP_INTERVAL_MS   300
+#define CHANNEL_HOP_LOOPS 5
 #define DISABLE 0
 #define ENABLE  1
 
+// for json transmission
+EthernetClient client;
+int portNumber = 8000;
+const char* server = "mmf.etadar.de";
+const char* resource = "/mmf/new";
+const unsigned long HTTP_TIMEOUT = 10000;  // max respone time from server
+const size_t MAX_CONTENT_SIZE = 10000;       // max size of the HTTP response
+
+  
 void sniffCycle() {
   Serial.println("Starting SniffCycle");
+
+//  JsonObject& root = jsonBuffer.createObject();
+//  JsonArray& data = root.createNestedArray("data");
+//  data.add(48.756080);
+//  data.add(2.302038);
+//  root.printTo(Serial);
+
   delay(10);
   wifi_promiscuous_enable(ENABLE);
-  for (uint8 i=1;i<14;i++) {
-    Serial.print("Scanning Channel ");
-    Serial.println(i);
-    delay(10);
-    wifi_set_channel(i);
-    delay(CHANNEL_HOP_INTERVAL_MS);
+  delay(10);
+  
+  for (uint8 j=1;j<CHANNEL_HOP_LOOPS;j++) {
+    for (uint8 i=1;i<14;i++) {
+      Serial.print("Scanning Channel ");
+      Serial.println(i);
+      delay(10);
+      wifi_set_channel(i);
+      delay(CHANNEL_HOP_INTERVAL_MS);
+    }
   }
+
+// POST the data
+//  if(connect(server, portNumber)) {
+//    if(sendRequest(server, resource) && skipResponseHeaders()) {
+//      Serial.println("HTTP POST request finished.");
+//    }
+//  }
+//  disconnect();
+  
 }
+
+/*
+bool connect(const char* hostName, int portNumber) {
+  Serial.print("Connect to ");
+  Serial.println(hostName);
+
+  bool ok = client.connect(hostName, portNumber);
+
+  Serial.println(ok ? "Connected" : "Connection Failed!");
+  return ok;
+}
+
+bool sendRequest(const char* host, const char* resource) {
+  // Generate the JSON string
+  root.printTo(Serial);
+  
+  Serial.print("POST ");
+  Serial.println(resource);
+
+  client.print("POST ");
+  client.print(resource);
+  client.println(" HTTP/1.1");
+  client.print("Host: ");
+  client.println(host);
+  client.println("Connection: close\r\nContent-Type: application/json");
+  client.print("Content-Length: ");
+  client.print(root.measureLength());
+  client.print("\r\n");
+  client.println();
+  root.printTo(client);
+
+  return true;
+}
+
+// Skip HTTP headers so that we are at the beginning of the response's body
+bool skipResponseHeaders() {
+  // HTTP headers end with an empty line
+  char endOfHeaders[] = "\r\n\r\n";
+
+  client.setTimeout(HTTP_TIMEOUT);
+  bool ok = client.find(endOfHeaders);
+
+  if(!ok) {
+    Serial.println("No response or invalid response!");
+  }
+  return ok;
+}
+*/
+
+// Close the connection with the HTTP server
+//void disconnect() {
+//  Serial.println("Disconnect");
+//  client.stop();
+//}
 
 char ssid[] = "TelekomOS1";  //  your network SSID (name)
 char pass[] = "#dthack18";       // your network password
@@ -140,6 +225,8 @@ void clientMode() {
   delay(10);
 }
 
+StaticJsonBuffer<8192> jsonBuffer;
+
 void setup() {
   wifi_set_promiscuous_rx_cb(sniffer_callback);
 	Serial.begin(115200);
@@ -152,5 +239,6 @@ void setup() {
 void loop() {
   sniffCycle();
   clientMode();
-  delay(5000);
+  Serial.println("(not yet) Sending Data to cloud...");
+  delay(2000);
 }

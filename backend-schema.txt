@@ -11,5 +11,12 @@ rssi_max as SHORTINT, ex. 95 (1-255)
 timestamp_received when data was received by server (created automatically on server)
 
 example request:
-POST to http://mmf.etadar.de:8000/mmf/new
+POST JSON to http://mmf.etadar.de:8000/mmf/new
+
+i.e.
+[
+{"mac":"00:12","sensor_id":1,"timestamp":123456789},
+{"mac":"00:12","sensor_id":1,"timestamp":123456789}
+]
+
 
