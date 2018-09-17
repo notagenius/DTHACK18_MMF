@@ -1,4 +1,4 @@
-# DTHACK18_MMF
+# DTHACK18_Monitoring Mobility Flow 
 Challenge 2: How can the city use WiFi monitoring to measure traffic flow and optimize planning (KPI: pedestrian, bicycle, car)?
 
 ### TEAM
