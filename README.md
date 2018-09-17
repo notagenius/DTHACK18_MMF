@@ -77,3 +77,8 @@ Emir Onuk sum up whole installation:
 
 ### RISS Analysis
 
+At the frequency of 1s per channel. ESP8266 got about 4 records of MAC sniffer when the object is in the range.
+when the phone is active. 
+
+![Page3](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/RISS_Chart.png?token=AaT2s1EQLUkzQ6sXIs1JrtkbdquFy4Qtks5bqSdjwA%3D%3D)
+
