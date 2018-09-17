@@ -24,8 +24,9 @@ Challenge:
 #define TYPE_DATA             0x02
 #define SUBTYPE_PROBE_REQUEST 0x04
 
-#define WIFI_SSID "TelekomOS1" 
-#define WIFI_PASS "#dthack18" 
+#define WIFI_SSID "Etadar-GmbH" 
+#define WIFI_PASS "schatzimausi"
+#define SENSOR_ID 7
 
 String post_string;
 WiFiClient client;
@@ -101,7 +102,7 @@ static void showMetadata(struct SnifferPacket *snifferPacket) {
 
   char addr[] = "00:00:00:00:00:00";
   getMAC(addr, snifferPacket->data, 10);
-  post_string = post_string + "{\"mac\":\""+ addr +"\",\"sensor_id\":200, \"rssi\":" +  String(snifferPacket->rx_ctrl.rssi, DEC) +",\"timestamp\":" + String(now()) +"},";
+  post_string = post_string + "{\"mac\":\""+ addr +"\",\"sensor_id\":"+SENSOR_ID+", \"rssi\":" +  String(snifferPacket->rx_ctrl.rssi, DEC) +",\"timestamp\":" + String(now()) +"},";
 
   /*
   Serial.print("RSSI: ");
@@ -115,6 +116,7 @@ static void showMetadata(struct SnifferPacket *snifferPacket) {
   Serial.print(" Peer MAC: ");
   Serial.println(addr);
   */
+  Serial.print("*");
 }
 
 /**
@@ -128,8 +130,8 @@ static void ICACHE_FLASH_ATTR sniffer_callback(uint8_t *buffer, uint16_t length)
 }
 
 
-#define CHANNEL_HOP_INTERVAL_MS   300
-#define CHANNEL_HOP_LOOPS 3
+#define CHANNEL_HOP_INTERVAL_MS 300
+#define CHANNEL_HOP_LOOPS 1
 #define DISABLE 0
 #define ENABLE  1
 
@@ -137,32 +139,25 @@ static void ICACHE_FLASH_ATTR sniffer_callback(uint8_t *buffer, uint16_t length)
 void sniffCycle() {
   Serial.println("Starting SniffCycle");
 
-//  JsonArray& root = jsonBuffer.reateNestedArray("data");
-//  JsonObject& root = jsonBuffer.createObject();
-//  JsonArray& data = root.createNestedArray("data");
-//  data.add(48.756080);
-//  data.add(2.302038);
-//  root.printTo(Serial);
-
-
   delay(10);
   wifi_promiscuous_enable(ENABLE);
   delay(10);
   
-  for (uint8 j=1;j<CHANNEL_HOP_LOOPS;j++) {
+  for (uint8 j=0;j<CHANNEL_HOP_LOOPS;j++) {
     for (uint8 i=1;i<14;i++) {
-      Serial.print("Scanning Channel ");
-      Serial.println(i);
+//      Serial.print("Scanning Channel ");
+      Serial.print(i);
+      Serial.print(" ");
       delay(10);
       wifi_set_channel(i);
       delay(CHANNEL_HOP_INTERVAL_MS);
     }
   }
-
+  Serial.println(".done.");
 }
 
-char ssid[] = "TelekomOS1";  //  your network SSID (name)
-char pass[] = "#dthack18";       // your network password
+char ssid[] = WIFI_SSID;  //  your network SSID (name)
+char pass[] = WIFI_PASS;       // your network password
   
 void clientMode() {
   Serial.println("Starting ClientMode");
@@ -185,31 +180,30 @@ void setup() {
   wifi_set_promiscuous_rx_cb(sniffer_callback);
   Serial.begin(115200);
   delay(10);
-  initNTP(WIFI_SSID, WIFI_PASS);
   
   clientMode();
+  initNTP(WIFI_SSID, WIFI_PASS);
   delay(10);
 }
 
 void loop() {
   sniffCycle();
-  clientMode();
-  Serial.println("(not yet) Sending Data to cloud...");
-  int length = post_string.length();
-  post_string[length-1] = ' ';
+//  Serial.println("post_string is: >>"+post_string+"<<");
+  if (post_string!="") {
+    clientMode();
+    Serial.println("Sending Data to cloud...");
+    int length = post_string.length();
+    post_string[length-1] = ' ';
   
-  String post_string2 = "["+post_string+"]";
-  Serial.println(post_string2);
+    String post_string2 = "["+post_string+"]";
+    Serial.println(post_string2);
 
-
-  // POST the data
     HTTPClient http;    //Declare object of class HTTPClient
  
-    http.begin("http://95.216.168.122:8000/mmf/new");      //Specify request destination
+    http.begin("http://mmf.etadar.de:8000/mmf/new");      //Specify request destination
     http.addHeader("Content-Type", "application/json");  //Specify content-type header
  
     int httpCode = http.POST(post_string2);
-    // = http.POST(JSONmessageBuffer);   //Send the requestDE
     String payload = http.getString();                                        //Get the response payload
  
     Serial.println(httpCode);   //Print HTTP return code
@@ -217,6 +211,9 @@ void loop() {
  
     http.end();  //Close connection
     
+    post_string="";
+    post_string2="";
   
-  delay(2000);
+//    delay(100);
+  }
 }
