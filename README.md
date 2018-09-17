@@ -22,9 +22,9 @@ Friedl Lesch ()
 ### UI Design
 ![Page1](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page1.png?token=AaT2sxAD0FiASSnRGXm2sGrrawWVYFWKks5bqR4rwA%3D%3D)
 
-![Page2](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page2.png)
+![Page2](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page3.png?token=AaT2swaVur4cmjaOWsoKkrzr4Jh9sYp8ks5bqR8KwA%3D%3D)
 
-![Page3](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page3.png)
+![Page3](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page2.png?token=AaT2s2Re4cr6S7s6anKEo2IqtC7voelYks5bqR8JwA%3D%3D)
 
 ### Hardware
 ESP8266
