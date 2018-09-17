@@ -31,14 +31,18 @@ Tanja Hohenstatt ()
 ### Hardware
 ESP8266
 
-ESP32（Undertest） 
+ESP32（Under testing） 
 
 ### Hardware Note
-Board Manger: Esp8266 2.4.2
+- Board Manger: Esp8266 2.4.2
 
-Board Choice: NodeMCU(ESP-12E Module)
+- Board Choice: NodeMCU(ESP-12E Module)
 
-Sample Code of Sniffer Mode: https://github.com/notagenius/dthack18
+- Sample Code of Sniffer Mode: https://github.com/notagenius/dthack18
+
+- NTP: https://github.com/gmag11/NtpClient & http://yfrobot.com/thread-11881-1-1.html
+
+- SNTP: with LUA https://nodemcu.readthedocs.io/en/master/en/modules/sntp/
 
 ### Server
 PHP / MYSQL 
@@ -71,4 +75,5 @@ Emir Onuk sum up whole installation:
 
 - Composer: https://getcomposer.org/download/
 
-###
+### RISS Analysis
+
