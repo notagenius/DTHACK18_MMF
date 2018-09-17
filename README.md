@@ -13,11 +13,11 @@ Emir Onuk ()
 
 Markus Jakobs ()
 
-Halil ()
+Halil Coban ()
 
 Weiling Xi ()
 
-Flesch ()
+Friedl Lesch ()
 
 ### UI Design
 
