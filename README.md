@@ -2,6 +2,7 @@
 DTHACK18_Team2
 
 ### TEAM
+
 Tanja Hohenstatt ()
 Ethan Arnold ()
 Sandro Bühler ()
