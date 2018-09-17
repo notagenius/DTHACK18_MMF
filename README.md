@@ -20,7 +20,7 @@ Weiling Xi ()
 Friedl Lesch ()
 
 ### UI Design
-!(Page1)[https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page1.png]
+!(Page1)[https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page1.png?token=AaT2sxAD0FiASSnRGXm2sGrrawWVYFWKks5bqR4rwA%3D%3D]
 
 !(Page2)[https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page2.png]
 
