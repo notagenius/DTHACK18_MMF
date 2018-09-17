@@ -7,19 +7,19 @@ Challenge 2: How can the city use WiFi monitoring to measure traffic flow and op
 
 Tanja Hohenstatt ()
 
-(Ethan Arnold)[https://github.com/arnolde]
+[Ethan Arnold](https://github.com/arnolde)
 
-(Sandro Bühler)[https://github.com/Sandro199]
+[Sandro Bühler](https://github.com/Sandro199)
 
-(Emir Onuk)[https://github.com/e-onux]
+[Emir Onuk](https://github.com/e-onux)
 
-(Markus Jakobs)[https://github.com/e-onux]
+[Markus Jakobs](https://github.com/e-onux)
 
-(Halil Coban)[https://github.com/Halil234] 
+[Halil Coban](https://github.com/Halil234)
 
-(Weiling Xi)[https://github.com/notagenius]
+[Weiling Xi](https://github.com/notagenius)
 
-(Friedl Lesch)[https://github.com/Flesch-04-18]
+[Friedl Lesch](https://github.com/Flesch-04-18)
 
 ### UI Design
 ![Page1](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page1.png?token=AaT2sxAD0FiASSnRGXm2sGrrawWVYFWKks5bqR4rwA%3D%3D)
