@@ -1,7 +1,7 @@
 # DTHACK18_MMF
 DTHACK18_Team2
 
-# TEAM
+### TEAM
 Tanja Hohenstatt ()
 Ethan Arnold ()
 Sandro Bühler ()
@@ -11,26 +11,26 @@ Halil ()
 Weiling Xi ()
 Flesch ()
 
-# UI Design
+### UI Design
 
 
-# Hardware
+### Hardware
 ESP8266
 ESP32（Undertest） 
 
-# Hardware Note
+### Hardware Note
 Board Manger: Esp8266 2.4.2
 Board Choice: NodeMCU(ESP-12E Module)
 Sample Code of Sniffer Mode: https://github.com/notagenius/dthack18
 
-# Server
+### Server
 PHP / MYSQL 
 
-# Login in Server Notes 
+### Login in Server Notes 
 Cloud Server for Storage of collected data: mmf.etadar.de
 ssh login with root, after havin given Ethan your SSH key
 
-# Emir Onuk's PHP MYSQL Rest API Tutorial
+### Emir Onuk's PHP MYSQL Rest API Tutorial
 Emir Onuk sum up whole installation:
 (you need php mysql web server)
 -Install composer: https://getcomposer.org/download/
@@ -43,4 +43,4 @@ Emir Onuk sum up whole installation:
 -Create methods as you can see here(Under "Getting records from database" title): https://www.cloudways.com/blog/rest-api-in-symfony-3-1/#crayon-5b9f0c72e1936746604741
 Composer: https://getcomposer.org/download/
 
-#
+###
