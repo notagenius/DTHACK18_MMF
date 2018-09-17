@@ -130,14 +130,13 @@ static void ICACHE_FLASH_ATTR sniffer_callback(uint8_t *buffer, uint16_t length)
 }
 
 
-#define CHANNEL_HOP_INTERVAL_MS 300
+#define CHANNEL_HOP_INTERVAL_MS 100
 #define CHANNEL_HOP_LOOPS 1
 #define DISABLE 0
 #define ENABLE  1
 
   
 void sniffCycle() {
-  Serial.println("Starting SniffCycle");
 
   delay(10);
   wifi_promiscuous_enable(ENABLE);
@@ -215,5 +214,6 @@ void loop() {
     post_string2="";
   
 //    delay(100);
+    Serial.println("Starting SniffCycle");
   }
 }
