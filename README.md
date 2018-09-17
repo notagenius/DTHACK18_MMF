@@ -47,22 +47,22 @@ Emir Onuk sum up whole installation:
 
 (you need php mysql web server)
 
--Install composer: https://getcomposer.org/download/
+- Install composer: https://getcomposer.org/download/
 
--Install Symfony into web server document root : https://symfony.com/doc/current/setup.html
+- Install Symfony into web server document root : https://symfony.com/doc/current/setup.html
 
--Install FOS Rest Api Bundle: https://symfony.com/doc/master/bundles/FOSRestBundle/1-setting_up_the_bundle.html
+- Install FOS Rest Api Bundle: https://symfony.com/doc/master/bundles/FOSRestBundle/1-setting_up_the_bundle.html
 
--Install JMS Serialize: http://jmsyst.com/bundles/JMSSerializerBundle
+- Install JMS Serialize: http://jmsyst.com/bundles/JMSSerializerBundle
 
--Create a database table model codes: ./app/console generate:doctrine:entity
+- Create a database table model codes: ./app/console generate:doctrine:entity
 
--Apply codes to generate database table: ./app/console doctrine:schema:update --force
+- Apply codes to generate database table: ./app/console doctrine:schema:update --force
 
--Generate controller: https://symfony.com/doc/master/bundles/SensioGeneratorBundle/commands/generate_controller.html
+- Generate controller: https://symfony.com/doc/master/bundles/SensioGeneratorBundle/commands/generate_controller.html
 
--Create methods as you can see here(Under "Getting records from database" title): https://www.cloudways.com/blog/rest-api-in-symfony-3-1/#crayon-5b9f0c72e1936746604741
+- Create methods as you can see here(Under "Getting records from database" title): https://www.cloudways.com/blog/rest-api-in-symfony-3-1/#crayon-5b9f0c72e1936746604741
 
-Composer: https://getcomposer.org/download/
+- Composer: https://getcomposer.org/download/
 
 ###
