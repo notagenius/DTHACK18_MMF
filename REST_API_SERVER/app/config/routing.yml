@@ -1,0 +1,8 @@
+app_mmf:
+    resource: "@AppBundle/Controller/MmfController.php"
+    type:     annotation
+
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

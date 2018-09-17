@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mmfs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Timestamp</th>
+                <th>Mac</th>
+                <th>Rssi</th>
+                <th>Bssid</th>
+                <th>Ssid</th>
+                <th>Rssimin</th>
+                <th>Rssimax</th>
+                <th>Sensorid</th>
+                <th>Timestampreceived</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mmf in mmfs %}
+            <tr>
+                <td><a href="{{ path('mmf_show', { 'id': mmf.id }) }}">{{ mmf.id }}</a></td>
+                <td>{{ mmf.timestamp }}</td>
+                <td>{{ mmf.mac }}</td>
+                <td>{{ mmf.rssi }}</td>
+                <td>{{ mmf.bssid }}</td>
+                <td>{{ mmf.ssid }}</td>
+                <td>{{ mmf.rssiMin }}</td>
+                <td>{{ mmf.rssiMax }}</td>
+                <td>{{ mmf.sensorId }}</td>
+                <td>{% if mmf.timestampReceived %}{{ mmf.timestampReceived|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('mmf_show', { 'id': mmf.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('mmf_edit', { 'id': mmf.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mmf_new') }}">Create a new mmf</a>
+        </li>
+    </ul>
+{% endblock %}

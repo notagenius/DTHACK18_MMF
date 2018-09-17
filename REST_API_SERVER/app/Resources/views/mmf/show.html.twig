@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mmf</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ mmf.id }}</td>
+            </tr>
+            <tr>
+                <th>Timestamp</th>
+                <td>{{ mmf.timestamp }}</td>
+            </tr>
+            <tr>
+                <th>Mac</th>
+                <td>{{ mmf.mac }}</td>
+            </tr>
+            <tr>
+                <th>Rssi</th>
+                <td>{{ mmf.rssi }}</td>
+            </tr>
+            <tr>
+                <th>Bssid</th>
+                <td>{{ mmf.bssid }}</td>
+            </tr>
+            <tr>
+                <th>Ssid</th>
+                <td>{{ mmf.ssid }}</td>
+            </tr>
+            <tr>
+                <th>Rssimin</th>
+                <td>{{ mmf.rssiMin }}</td>
+            </tr>
+            <tr>
+                <th>Rssimax</th>
+                <td>{{ mmf.rssiMax }}</td>
+            </tr>
+            <tr>
+                <th>Sensorid</th>
+                <td>{{ mmf.sensorId }}</td>
+            </tr>
+            <tr>
+                <th>Timestampreceived</th>
+                <td>{% if mmf.timestampReceived %}{{ mmf.timestampReceived|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('mmf_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('mmf_edit', { 'id': mmf.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
