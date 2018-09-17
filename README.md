@@ -1,7 +1,9 @@
 # DTHACK18_MMF
-DTHACK18_Team2
+Challenge 2: How can the city use WiFi monitoring to measure traffic flow and optimize planning (KPI: pedestrian, bicycle, car)?
 
 ### TEAM
+
+![TEAM](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/3cover.png?token=AaT2s7tdwmyXaXVsgIav5kiJM2_7yUfhks5bqSSewA%3D%3D)
 
 Tanja Hohenstatt ()
 
