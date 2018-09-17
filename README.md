@@ -5,19 +5,19 @@ DTHACK18_Team2
 
 Tanja Hohenstatt ()
 
-Ethan Arnold ()
+(Ethan Arnold)[https://github.com/arnolde]
 
-Sandro Bühler ()
+(Sandro Bühler)[https://github.com/Sandro199]
 
-Emir Onuk ()
+(Emir Onuk)[https://github.com/e-onux]
 
-Markus Jakobs ()
+(Markus Jakobs)[https://github.com/e-onux]
 
-Halil Coban ()
+(Halil Coban)[https://github.com/Halil234] 
 
-Weiling Xi ()
+(Weiling Xi)[https://github.com/notagenius]
 
-Friedl Lesch ()
+(Friedl Lesch)[https://github.com/Flesch-04-18]
 
 ### UI Design
 ![Page1](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page1.png?token=AaT2sxAD0FiASSnRGXm2sGrrawWVYFWKks5bqR4rwA%3D%3D)
