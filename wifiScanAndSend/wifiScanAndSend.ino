@@ -21,6 +21,7 @@ Challenge:
 #define TYPE_DATA             0x02
 #define SUBTYPE_PROBE_REQUEST 0x04
 
+String dataToSend = "[";
 
 struct RxControl {
 	signed rssi : 8; // signal intensity of packet
@@ -67,7 +68,6 @@ static void getMAC(char *addr, uint8_t* data, uint16_t offset) {
 	sprintf(addr, "%02x:%02x:%02x:%02x:%02x:%02x", data[offset + 0], data[offset + 1], data[offset + 2], data[offset + 3], data[offset + 4], data[offset + 5]);
 }
 
-
 static void showMetadata(struct SnifferPacket *snifferPacket) {
 
 	unsigned int frameControl = ((unsigned int)snifferPacket->data[1] << 8) + snifferPacket->data[0];
@@ -93,6 +93,8 @@ static void showMetadata(struct SnifferPacket *snifferPacket) {
 	getMAC(addr, snifferPacket->data, 10);
 	Serial.print(" Peer MAC: ");
 	Serial.println(addr);
+
+//  dataToSend = dataToSend + "{\"mac\":\""+getMAC(addr, snifferPacket->data, 10)+"\",\"sensor_id\":1,\"timestamp\":123456789,\"rssi\":"+(snifferPacket->rx_ctrl.rssi, DEC)+"},";
 }
 
 /**
@@ -106,8 +108,8 @@ static void ICACHE_FLASH_ATTR sniffer_callback(uint8_t *buffer, uint16_t length)
 }
 
 
-#define CHANNEL_HOP_INTERVAL_MS   300
-#define CHANNEL_HOP_LOOPS 3
+#define CHANNEL_HOP_INTERVAL_MS   2000
+#define CHANNEL_HOP_LOOPS 1
 #define DISABLE 0
 #define ENABLE  1
 
@@ -125,8 +127,10 @@ void sniffCycle() {
   delay(10);
   wifi_promiscuous_enable(ENABLE);
   delay(10);
+
+  dataToSend = "[";
   
-  for (uint8 j=1;j<CHANNEL_HOP_LOOPS;j++) {
+  for (uint8 j=0;j<CHANNEL_HOP_LOOPS;j++) {
     for (uint8 i=1;i<14;i++) {
       Serial.print("Scanning Channel ");
       Serial.println(i);
@@ -138,8 +142,8 @@ void sniffCycle() {
 
 }
 
-char ssid[] = "TelekomOS1";  //  your network SSID (name)
-char pass[] = "#dthack18";       // your network password
+char ssid[] = "Etadar-GmbH";  //  your network SSID (name)
+char pass[] = "schatzimausi";       // your network password
   
 void clientMode() {
   Serial.println("Starting ClientMode");
@@ -156,7 +160,25 @@ void clientMode() {
   delay(10);
 }
 
-StaticJsonBuffer<8192> jsonBuffer;
+//StaticJsonBuffer<8192> jsonBuffer;
+
+
+void sendResultsToCloud() {
+
+    HTTPClient http;    //Declare object of class HTTPClient
+ 
+    http.begin("http://95.216.168.122:8000/mmf/new");      //Specify request destination
+    http.addHeader("Content-Type", "application/json");  //Specify content-type header
+ 
+    int httpCode = http.POST("[{\"mac\":\"TEST\",\"sensor_id\":255,\"timestamp\":123456789},{\"mac\":\"TEST\",\"sensor_id\":255,\"timestamp\":123456789}]");
+    // = http.POST(JSONmessageBuffer);   //Send the request
+    String payload = http.getString();                                        //Get the response payload
+ 
+    Serial.println(httpCode);   //Print HTTP return code
+    Serial.println(payload);    //Print request response payload
+ 
+    http.end();  //Close connection
+}
 
 void setup() {
   wifi_set_promiscuous_rx_cb(sniffer_callback);
@@ -171,20 +193,8 @@ void loop() {
   clientMode();
   Serial.println("(not yet) Sending Data to cloud...");
 
-  // POST the data
-    HTTPClient http;    //Declare object of class HTTPClient
- 
-    http.begin("http://95.216.168.122:8000/mmf/new");      //Specify request destination
-    http.addHeader("Content-Type", "application/json");  //Specify content-type header
- 
-    int httpCode = http.POST("[{\"mac\":\"TEST\",\"sensor_id\":255,\"timestamp\":123456789},{\"mac\":\"TEST\",\"sensor_id\":255,\"timestamp\":123456789}]");
-    // = http.POST(JSONmessageBuffer);   //Send the request
-    String payload = http.getString();                                        //Get the response payload
- 
-    Serial.println(httpCode);   //Print HTTP return code
-    Serial.println(payload);    //Print request response payload
- 
-    http.end();  //Close connection
+  sendResultsToCloud();
+  //TODO: clear json object after sending
   
   delay(2000);
 }
