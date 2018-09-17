@@ -1,23 +1,25 @@
-# DTHACK18_MMF
-DTHACK18_Team2
+# DTHACK18_Monitoring Mobility Flow 
+Challenge 2: How can the city use WiFi monitoring to measure traffic flow and optimize planning (KPI: pedestrian, bicycle, car)?
 
 ### TEAM
 
+![TEAM](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/3cover.png?token=AaT2s7tdwmyXaXVsgIav5kiJM2_7yUfhks5bqSSewA%3D%3D)
+
 Tanja Hohenstatt ()
 
-(Ethan Arnold)[https://github.com/arnolde]
+[Ethan Arnold](https://github.com/arnolde)
 
-(Sandro Bühler)[https://github.com/Sandro199]
+[Sandro Bühler](https://github.com/Sandro199)
 
-(Emir Onuk)[https://github.com/e-onux]
+[Emir Onuk](https://github.com/e-onux)
 
-(Markus Jakobs)[https://github.com/e-onux]
+[Markus Jakobs](https://github.com/e-onux)
 
-(Halil Coban)[https://github.com/Halil234] 
+[Halil Coban](https://github.com/Halil234)
 
-(Weiling Xi)[https://github.com/notagenius]
+[Weiling Xi](https://github.com/notagenius)
 
-(Friedl Lesch)[https://github.com/Flesch-04-18]
+[Friedl Lesch](https://github.com/Flesch-04-18)
 
 ### UI Design
 ![Page1](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page1.png?token=AaT2sxAD0FiASSnRGXm2sGrrawWVYFWKks5bqR4rwA%3D%3D)
@@ -29,14 +31,18 @@ Tanja Hohenstatt ()
 ### Hardware
 ESP8266
 
-ESP32（Undertest） 
+ESP32（Under testing） 
 
 ### Hardware Note
-Board Manger: Esp8266 2.4.2
+- Board Manger: Esp8266 2.4.2
 
-Board Choice: NodeMCU(ESP-12E Module)
+- Board Choice: NodeMCU(ESP-12E Module)
 
-Sample Code of Sniffer Mode: https://github.com/notagenius/dthack18
+- Sample Code of Sniffer Mode: https://github.com/notagenius/dthack18
+
+- NTP: https://github.com/gmag11/NtpClient & http://yfrobot.com/thread-11881-1-1.html
+
+- SNTP: with LUA https://nodemcu.readthedocs.io/en/master/en/modules/sntp/
 
 ### Server
 PHP / MYSQL 
@@ -69,4 +75,5 @@ Emir Onuk sum up whole installation:
 
 - Composer: https://getcomposer.org/download/
 
-###
+### RISS Analysis
+
