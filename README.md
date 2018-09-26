@@ -3,7 +3,7 @@ Challenge 2: How can the city use WiFi monitoring to measure traffic flow and op
 
 ### TEAM
 
-![TEAM](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/3cover.png?token=AaT2s7tdwmyXaXVsgIav5kiJM2_7yUfhks5bqSSewA%3D%3D)
+![TEAM](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/3cover.png)
 
 Tanja Hohenstatt ()
 
@@ -22,11 +22,11 @@ Tanja Hohenstatt ()
 [Friedl Lesch](https://github.com/Flesch-04-18)
 
 ### UI Design
-![Page1](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page1.png?token=AaT2sxAD0FiASSnRGXm2sGrrawWVYFWKks5bqR4rwA%3D%3D)
+![Page1](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page1.png)
 
-![Page2](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page3.png?token=AaT2swaVur4cmjaOWsoKkrzr4Jh9sYp8ks5bqR8KwA%3D%3D)
+![Page2](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page3.png)
 
-![Page3](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page2.png?token=AaT2s2Re4cr6S7s6anKEo2IqtC7voelYks5bqR8JwA%3D%3D)
+![Page3](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/Page2.png)
 
 ### Hardware
 ESP8266
