@@ -9,8 +9,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
 
-const char ssid[] = "TelekomOS1";  //  your network SSID (name)
-const char pass[] = "#dthack18";       // your network password
+const char ssid[] = "";  //  your network SSID (name)
+const char pass[] = "";       // your network password
 
 // NTP Servers:
 static const char ntpServerName[] = "us.pool.ntp.org";
