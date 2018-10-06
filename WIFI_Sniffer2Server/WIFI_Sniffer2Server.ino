@@ -24,8 +24,8 @@ Challenge:
 #define TYPE_DATA             0x02
 #define SUBTYPE_PROBE_REQUEST 0x04
 
-#define WIFI_SSID "Etadar-GmbH" 
-#define WIFI_PASS "schatzimausi"
+#define WIFI_SSID "" 
+#define WIFI_PASS ""
 #define SENSOR_ID 7
 
 String post_string;
