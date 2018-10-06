@@ -4,8 +4,8 @@
  
  
 
-#define WIFI_SSID "TelekomOS1" 
-#define WIFI_PASS "#dthack18" 
+#define WIFI_SSID "" 
+#define WIFI_PASS "#" 
 
 WiFiClient client;
 
