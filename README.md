@@ -48,7 +48,7 @@ ESP32（Under testing）
 PHP / MYSQL 
 
 ### Login in Server Notes 
-Cloud Server for Storage of collected data: mmf.etadar.de
+Cloud Server for Storage of collected data: your server
 
 ssh login with root, after havin given Ethan your SSH key
 
