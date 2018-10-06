@@ -142,8 +142,8 @@ void sniffCycle() {
 
 }
 
-char ssid[] = "Etadar-GmbH";  //  your network SSID (name)
-char pass[] = "schatzimausi";       // your network password
+char ssid[] = "";  //  your network SSID (name)
+char pass[] = "";       // your network password
   
 void clientMode() {
   Serial.println("Starting ClientMode");
