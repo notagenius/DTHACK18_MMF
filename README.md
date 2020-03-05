@@ -3,7 +3,6 @@ Challenge 2: How can the city use WiFi monitoring to measure traffic flow and op
 
 ### TEAM
 
-![TEAM](https://raw.githubusercontent.com/notagenius/DTHACK18_MMF/master/doc/3cover.png)
 
 Tanja Hohenstatt ()
 
